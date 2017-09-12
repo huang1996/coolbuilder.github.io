@@ -3,36 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <title>主页</title>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
 </head>
 <body>
-<div style="width: 1000px;height: 1000px;margin: auto;">
-    <div style="height: 200px;width: 100%;text-align: center;">
-        <h1 style="margin: auto;text-align: center;">H5学习记录</h1>
-        <h2>什么是HTML5？</h2>
-        <span>按照W3C给定的标准：HTML5 将成为 HTML、XHTML 以及 HTML DOM 的新标准。</span>
-        <br>
-        <span>其实简单点说就是HTML第五个版本</span>
-        <h2>HTML5有什么新特性？</h2>
-        <span>HTML5带来了很多新东西，也对之前的版本的一些东西进行了优化，还规范了代码书写标准，总的来说，是一次很大的进步。</span>
-        <h2>H5的几个重要功能</h2>
-        <h3>Canvas</h3>
-        <span>HTML5 的 canvas 元素使用 JavaScript 在网页上绘制图像。</span>
-        <a href="Canvas_Demo.html">Canvas_demo</a>
-        <h3>SVG</h3>
-        <span>HTML5 的 canvas 元素使用 JavaScript 在网页上绘制图像。</span>
-        <h3>地理定位</h3>
-        <span>HTML5 Geolocation API 用于获得用户的地理位置。</span>
-        <h3>Web存储</h3>
-        <span>HTML5 提供了两种在客户端存储数据的新方法：<br>
-        localStorage - 没有时间限制的数据存储<br>
-        sessionStorage - 针对一个 session 的数据存储</span>
-        <h3>应用缓存</h3>
-        <span>HTML5 引入了应用程序缓存，这意味着 web 应用可进行缓存，并可在没有因特网连接时进行访问。</span>
-        <h3>服务器发送事件</h3>
-        <span>Server-Sent 事件指的是网页自动获取来自服务器的更新。</span>
-
+<nav class="navbar navbar-default" role="navigation" style="margin-bottom: 1px;">
+    <div style="width:1000px;argin: auto;text-align: center;" class="center-block">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">菜鸟教程</a>
+            </div>
+            <div>
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">iOS</a></li>
+                    <li><a href="#">SVN</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Java
+                            <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">jmeter</a></li>
+                            <li><a href="#">EJB</a></li>
+                            <li><a href="#">Jasper Report</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#">分离的链接</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#">另一个分离的链接</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </div>
+</nav>
 
+<div id="myCarousel" class="carousel slide" style="width: 100%;height: 400px;display: block;">
+    <!-- 轮播（Carousel）指标 -->
+    <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+        <li data-target="#myCarousel" data-slide-to="3"></li>
+    </ol>
+    <!-- 轮播（Carousel）项目 -->
+    <div class="carousel-inner">
+        <div class="item active">
+            <img src="images/1.jpg" alt="First slide">
+            <div class="carousel-caption">标题 1</div>
+        </div>
+        <div class="item">
+            <img src="images/2.jpg" alt="Second slide">
+            <div class="carousel-caption">标题 2</div>
+        </div>
+        <div class="item">
+            <img src="images/3.jpg" alt="Third slide">
+            <div class="carousel-caption">标题 3</div>
+        </div>
+        <div class="item">
+            <img src="images/4.jpg" alt="Third slide">
+            <div class="carousel-caption">标题 4</div>
+        </div>
+    </div>
+    <!-- 轮播（Carousel）导航 -->
+    <a class="carousel-control left" href="#myCarousel"
+       data-slide="prev">&lsaquo;</a>
+    <a class="carousel-control right" href="#myCarousel"
+       data-slide="next">&rsaquo;</a>
 </div>
 </body>
 </html>
