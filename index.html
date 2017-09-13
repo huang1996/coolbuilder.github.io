@@ -8,7 +8,7 @@
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
 </head>
 <body>
-<nav class="navbar navbar-default" role="navigation" style="margin-bottom: 1px;">
+<nav class="navbar navbar-default navbar-fixed-top nav-divider" role="navigation" style="margin-bottom: 0px;">
     <div style="width:1000px;argin: auto;text-align: center;" class="center-block">
         <div class="container-fluid">
             <div class="navbar-header">
@@ -17,7 +17,7 @@
             <div>
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="#">主页</a></li>
-                    <li><a href="#">H5简介</a></li>
+                    <li><a href="new.html">H5简介</a></li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             网站建设课程作业
@@ -39,7 +39,7 @@
     </div>
 </nav>
 
-<div id="myCarousel" class="carousel slide" style="width: 100%;height: 400px;display: block;">
+<div id="myCarousel" class="carousel slide" style="width: 100%;height: 400px;display: block;margin-bottom: 0px;">
     <!-- 轮播（Carousel）指标 -->
     <ol class="carousel-indicators">
         <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -72,6 +72,14 @@
     <a class="carousel-control right" href="#myCarousel"
        data-slide="next">&rsaquo;</a>
 </div>
-<a href="Canvas_Demo.html">CanvasDEmo</a>
+<div style="width: 1000px;background-color: #999999;height: 1000px;" class="center-block" >
+</div>
+<script>
+    $(document).ready(function () {
+        $("#myCarousel").carousel({
+            interval: 3000
+        });
+    })
+</script>
 </body>
 </html>
