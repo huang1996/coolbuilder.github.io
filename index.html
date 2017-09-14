@@ -8,7 +8,7 @@
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
 </head>
 <body>
-<nav class="navbar navbar-default navbar-fixed-top nav-divider" role="navigation" style="margin-bottom: 0px;">
+<nav id="nav" class="navbar navbar-default navbar-fixed-top nav-divider" role="navigation" style="margin-bottom: 0px;">
     <div style="width:1000px;argin: auto;text-align: center;" class="center-block">
         <div class="container-fluid">
             <div class="navbar-header">
@@ -48,21 +48,21 @@
         <li data-target="#myCarousel" data-slide-to="3"></li>
     </ol>
     <!-- 轮播（Carousel）项目 -->
-    <div class="carousel-inner">
-        <div class="item active">
-            <img src="images/1.jpg" alt="First slide">
+    <div class="carousel-inner" style="height: 400px;">
+        <div class="item active" style="height: 400px;">
+            <img style="height: 400px;" src="images/1.jpg" alt="First slide">
             <div class="carousel-caption">标题 1</div>
         </div>
-        <div class="item">
-            <img src="images/2.jpg" alt="Second slide">
+        <div class="item" style="height: 400px;">
+            <img style="height: 400px;" src="images/2.jpg" alt="Second slide">
             <div class="carousel-caption">标题 2</div>
         </div>
-        <div class="item">
-            <img src="images/3.jpg" alt="Third slide">
+        <div class="item" style="height: 400px;">
+            <img style="height: 400px;" src="images/3.jpg" alt="Third slide">
             <div class="carousel-caption">标题 3</div>
         </div>
-        <div class="item">
-            <img src="images/4.jpg" alt="Third slide">
+        <div class="item" style="height: 400px;">
+            <img src="images/4.jpg" style="height: 400px;" alt="Third slide">
             <div class="carousel-caption">标题 4</div>
         </div>
     </div>
@@ -75,7 +75,17 @@
 <div style="width: 1000px;background-color: #999999;height: 1000px;" class="center-block" >
 </div>
 <script>
+    var top=0;
     $(document).ready(function () {
+        $(document).scroll(function () {
+            if (window.pageYOffset>400)
+            {
+                $("#nav").css("opacity",0.8);
+            }else
+            {
+                $("#nav").css("opacity",1);
+            }
+        });
         $("#myCarousel").carousel({
             interval: 3000
         });
