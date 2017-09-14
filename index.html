@@ -72,15 +72,19 @@
     <a class="carousel-control right" href="#myCarousel"
        data-slide="next">&rsaquo;</a>
 </div>
-<div style="width: 1000px;background-color: #999999;height: 1000px;" class="center-block" >
+<div style="width: 1000px;height: 1000px;" class="container jumbotron center-block" >
 </div>
 <script>
-    var top=0;
+    var opa=1;
     $(document).ready(function () {
         $(document).scroll(function () {
-            if (window.pageYOffset>400)
+            if (window.pageYOffset>100)
             {
-                $("#nav").css("opacity",0.8);
+                if(opa>0.7)
+                {
+                    opa=opa-0.01;
+                }
+                $("#nav").css("opacity",opa);
             }else
             {
                 $("#nav").css("opacity",1);
