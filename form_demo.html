@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表单</title>
+</head>
+<script src="js/jquery.min.js"></script>
+<body>
+<div style="margin: auto;width: 1000px;height: auto;">
+<form method="post" action="ls_demo.html">
+    姓名：<input type="text" name="name" id="name"><br>
+    学号：<input type="text" name="num" id="num"><br>
+    <button type="button" onclick="save()">提交</button>
+    <button type="button" onclick="out()">输出</button>
+</form>
+</div>
+<script>
+
+    function save() {
+        var name=$("#name").val();
+        var num=$("#num").val();
+        var stu=new Array(name,num);
+        localStorage.setItem("stu",stu);
+            //localStorage.name=$("#name").val();
+            //localStorage.num=$("#num").val();
+    }
+    function out() {
+        localStorage.stu[1];
+    }
+</script>
+</body>
+</html>

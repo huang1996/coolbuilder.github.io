@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>获得信息</title>
+</head>
+<body>
+<div id="result"></div>
+<script>
+    if(typeof(EventSource)!=="undefined")
+    {
+        var source=new EventSource("http://live.coolbuilder.club/act.php");
+        source.onmessage=function(event)
+        {
+            document.getElementById("result").innerHTML+=event.data + "<br />";
+        };
+    }
+    else
+    {
+        document.getElementById("result").innerHTML="抱歉，您的浏览器不支持 server-sent 事件 ...";
+    }
+</script>
+</body>
+</html>
