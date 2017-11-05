@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/jquery.min.js">
+
+    </script>
+</head>
+<body>
+<input type="text" id="text">
+
+<button id="btn">按钮</button>
+<script>
+    $(document).ready(function () {
+
+        $("#btn").click(function () {
+            var x=$("#text").val();
+            alert_info(x);
+        });
+
+    })
+    function alert_info(msg) {
+        alert("信息："+msg);
+    }
+</script>
+</body>
+</html>

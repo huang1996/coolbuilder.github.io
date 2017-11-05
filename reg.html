@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登陆</title>
+</head>
+<body>
+<form>
+    <h2>注册账号：</h2>
+    账号：<input type="text" name="name" id="name"><br>
+    密码：<input type="password" name="pwd" id="pwd"><br>
+    <input type="button" value="注册" onclick="sava()">
+</form>
+<a href="login.html">去登陆</a>
+<script>
+    function openDB(name,version) {
+        var request=window.indexedDB.open(name);
+        request.onerror=function (e) {
+            console.log("数据库连接失败。");
+        };
+        request.onsuccess=function (e) {
+            myDB.db=e.target.result;
+            console.log("数据库连接成功。");
+        };
+        request.onupgradeneeded=function(e){
+            var db=e.target.result;
+            if(!db.objectStoreNames.contains('students')){
+                db.createObjectStore('students',{keyPath:"id"});
+            }
+            console.log('DB version changed to '+version);
+        };
+    }
+    function closeDB(db) {
+        db.close();
+    };
+    function deleteDB(name) {
+        indexedDB.deleteDatabase(name);
+    };
+    function addData(db,storeName){
+        var transaction=db.transaction(storeName,'readwrite');
+        var store=transaction.objectStore(storeName);
+        for(var i=0;i<students.length;i++){
+            store.add(students[i]);
+        }
+    }
+    function getDataByKey(db,storeName,value){
+        var transaction=db.transaction(storeName,'readwrite');
+        var store=transaction.objectStore(storeName);
+        store.openCursor().onsuccess=function () {
+            var cursor = event.target.result;
+
+            if (cursor) {
+                var key = cursor.key;
+                var rowData = cursor.value;
+                cursor.continue();
+            }
+        };
+        var request=store.get(value);
+        request.onsuccess=function(e){
+            var student=e.target.result;
+            console.log(student.name);
+        };
+    }
+    //初始化数据库信息
+    myDB={
+        name:"stu",
+        version:1,
+        db:null
+    };
+    //连接数据库
+    openDB(myDB.name,myDB.version);
+    function sava() {
+        var name=document.getElementById("name").value;
+        var pwd=document.getElementById("pwd").value;
+        students=[{
+            id:Math.floor(Math.random()*2000),
+            name:name,
+            pwd:pwd
+        }];
+        setTimeout(function () {
+            addData(myDB.db,'students');
+        },1000);
+        alert("注册成功。");
+    };
+    setTimeout(function () {
+        getDataByKey(myDB.db,'students',20158570);
+    },1000);
+</script>
+
+</body>
+</html>

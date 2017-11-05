@@ -10,22 +10,14 @@
 <form method="post" action="ls_demo.html">
     姓名：<input type="text" name="name" id="name"><br>
     学号：<input type="text" name="num" id="num"><br>
-    <button type="button" onclick="save()">提交</button>
-    <button type="button" onclick="out()">输出</button>
+    <button type="submit" onclick="save()">提交</button>
 </form>
 </div>
 <script>
 
     function save() {
-        var name=$("#name").val();
-        var num=$("#num").val();
-        var stu=new Array(name,num);
-        localStorage.setItem("stu",stu);
-            //localStorage.name=$("#name").val();
-            //localStorage.num=$("#num").val();
-    }
-    function out() {
-        localStorage.stu[1];
+            localStorage.name=$("#name").val();
+            localStorage.num=$("#num").val();
     }
 </script>
 </body>

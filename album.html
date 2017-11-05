@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>相册</title>
+    <script src="js/jquery.min.js">
+
+    </script>
+    <style>
+        .img
+        {
+            margin: auto;
+            box-shadow: 0 0 8px black;
+            padding: 3px;
+            border-color: rgba(111,111,111,0.7);
+        }
+        .img:hover
+        {
+            box-shadow: 0 0 20px black;
+        }
+    </style>
+</head>
+<body>
+<div style="width: 1000px;height: 1000px;margin: auto;text-align: center;">
+    <img id="imgid" src="http://202.115.177.11/photo/201600123.jpg" class="img"><br>
+    <button id="btn1" >上一张</button>
+    <button id="btn2">下一张</button>
+    <input id="text" type="text"><button id="set">设置学号</button>
+    <script>
+        $(document).ready(function () {
+            var stuid=201600123;
+            $("#btn1").click(function () {
+                stuid=stuid-1;
+                $("#imgid").attr("src","http://202.115.177.11/photo/"+stuid+".jpg");
+            })
+            $("#btn2").click(function () {
+                stuid=stuid+1;
+                $("#imgid").attr("src","http://202.115.177.11/photo/"+stuid+".jpg");
+            })
+            $("#set").click(function () {
+                stuid=parseInt($("#text").val());
+                $("#imgid").attr("src","http://202.115.177.11/photo/"+stuid+".jpg")
+            })
+        })
+    </script>
+</div>
+</body>
+</html>

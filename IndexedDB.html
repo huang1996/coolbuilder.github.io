@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var indexedDB = window.indexedDB || window.mozIndexedDB || window.webkitIndexedDB || window.msIndexedDB;
+    var request,database;
+    request = indexedDB.open('test');
+    request.onerror = function(e){
+        console.log(e.target.errorCode);
+    };
+    request.onsuccess = function(e){
+        database = e.target.result;
+        console.log('创建或打开数据库成功') ;
+    };
+    var data=[{
+        id:1007,
+        name:"Byron",
+        age:24
+    },{
+        id:1008,
+        name:"Frank",
+        age:30
+    },{
+        id:1009,
+        name:"Aaron",
+        age:26
+    }];
+    function createObjectStore(name) {
+
+    }
+    var store = database.create("students",{keyPath:"id"});
+    //var store = database.createObjectStore("students",{autoIncrement:true});
+    for(var i = 0 ; i < data.length;i++){
+        request = store.add(data[i]);
+        request.onerror = function(){
+            console.error('数据库中已有该数据')
+        };
+        request.onsuccess = function(){
+            console.log('数据已存入数据库')
+        };
+    };
+</script>
+</body>
+</html>

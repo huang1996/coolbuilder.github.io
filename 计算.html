@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="js/jquery.min.js"></script>
+</head>
+<body>
+<input type="text" id="val">
+<button id="btn">计算</button>
+<div id="content">
+
+</div>
+<script>
+    $(document).ready(function () {
+        $("#btn").click(function () {
+            var num=$("#val").val();
+            for (i=num;i>1;i--)
+            {
+                if (num % i==0)
+                {
+                    var x1=num/i;
+                    if (gys(x1) && gys(i))
+                    {
+                        $("#content").text(num+"的最大公约数为"+x1+"与"+i);
+                        break;
+                    }
+                }
+                if (i==2)
+                {
+                    $("#content").text(num+"没有为素数的最大公因数");
+                }
+            }
+
+        })
+    })
+    function gys(x) {
+        for (j=2;j<x;j++)
+        {
+            if (x % j==0)
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+</script>
+</body>
+</html>

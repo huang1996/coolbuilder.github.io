@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>弹幕</title>
+    <script src="js/jquery.min.js">
+    </script>
+    <script src="js/easeljs-0.8.2.min.js"></script>
+</head>
+<body>
+
+<div style="width: 1000px;height: 800px;margin:auto;">
+    <video controls="controls" width="800px" height="600px">
+        <source src="video/Mirror-FIESTAR-练习室版.mp4">
+    </video>
+    <canvas width="800px" height="550px" id="canvas" style="position: absolute; left:460px;top:0px;border: 1px solid black;">
+
+    </canvas><br>
+    <div style="text-align: center;">
+        <input type="text" id="text" style="display: inline-block;">
+        <button id="btn"  style="display: inline-block;">发送弹幕</button>
+    </div>
+
+</div>
+
+<script>
+    var canvas;
+    var stage;
+    var txt=new Array();
+    var text;
+    var sprite;
+    var bitmap;
+    window.onload = function(){
+        canvas = document.getElementById("canvas");
+        stage = new createjs.Stage(canvas);
+        document.getElementById("btn").onclick=function () {
+            var tlengh=txt.length+1;
+            for (var j=0;j<tlengh;j++)
+            {
+
+                if (txt[j]==null)
+                {
+                    txt[j]=document.getElementById("text").value;
+                    text=new createjs.Text(txt[j],"20px Arial","#ff7700");
+                    text.x=800;
+                    text.y=Math.random()*600;
+                    stage.addChild(text);
+                }
+                else
+                {
+
+                }
+            }
+            //txt=createjs.text(txt);
+            //stage.addChild(txt);
+            createjs.Ticker.setFPS(30);
+            createjs.Ticker.addEventListener("tick",tick);
+        }
+    }
+
+    function tick(e){
+        var num=stage.getNumChildren();
+        for(var i=0;i<num;i++)
+        {
+
+            var st=stage.getChildAt(i);
+            st.x-=2;
+        }
+        stage.update(e);
+    }
+</script>
+</body>
+</html>
